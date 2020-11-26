@@ -41,6 +41,11 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+
+            // have to add this so that Angular apps can make
+            // cross origin calls into our API / App
+            // when this is called is not important
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +61,15 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // when this is called is *very* important
+            // we open up allowing any header and any method
+            // to be called, but only from our angular app.
+            // All other sources will be locked out
+            app.UseCors(x => x
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .WithOrigins("https://localhost:4200"));
 
             app.UseAuthorization();
 
