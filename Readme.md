@@ -78,15 +78,30 @@ https://github.com/TryCatchLearn/DatingApp
 
 
 ## Lesson 48 : Creating a Nav Bar
-ng g -h - get help from the ng generate command
+`ng g -h` - get help from the ng generate command
 
-He likes to create components in the client/src/app folder.
+He likes to create components in the `client/src/app` folder.
 
-ng g c nav (create the nav component)
-ng g c nav --skip-tests (create nav component without tests)
+`ng g c nav` (create the nav component)
+`ng g c nav --skip-tests` (create nav component without tests)
 
+* app.module.ts will have a new import and the `NavComponent` in the `@NgModule / declarations` section.
+* work on `nav.component.html` to change the html to show a top nav bar.
+  * getbootstrap.com, and click on examples, to find some bootstrap code to copy / paste.
 
+```typescript
+// from nav.component.ts - <app-nav></app-nav> to embed
+@Component({
+  selector: 'app-nav', // this tells you what to embed in another page to show this component
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
+})
+```
 
+* div.container, then TAB - Emmet abbreviation. Creates: 
+```html 
+<div class="container"></div>
+```
 
 
 

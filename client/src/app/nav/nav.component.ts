@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-nav',
+  selector: 'app-nav', // this tells you what to embed in another page to show this component
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
