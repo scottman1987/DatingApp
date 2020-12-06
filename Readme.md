@@ -98,10 +98,16 @@ He likes to create components in the `client/src/app` folder.
 })
 ```
 
-* div.container, then TAB - Emmet abbreviation. Creates: 
+* A shortcut. Type div.container, then TAB (which is an Emmet abbreviation). This creates the following HTML: 
 ```html 
 <div class="container"></div>
 ```
+  * You can chain classes together, like div.container.otherclass
+* Option + Shift + F is used to autoformat code in Visual Studio Code
+* Copy a whole line down: Shift + Option + down arrow key
+
+
+
 
 
 
