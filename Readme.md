@@ -28,7 +28,7 @@ For some reason it seems that the brew installer doesn’t put anything into .zs
 Quit the Terminal and restart
 
 
-#Lesson 48 : Creating a Nav Bar
+# Lesson 48 : Creating a Nav Bar
 ng g -h - get help from the ng generate command
 
 He likes to create components in the client/src/app folder.
