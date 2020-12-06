@@ -9,7 +9,7 @@ dotnet run
 -OR-
 dotnet watch run
 
-# Lesson 2 - getting the software set up
+## Lesson 2 - getting the software set up
 
 Understanding and installing Node Version Manager:
 https://joachim8675309.medium.com/installing-node-js-with-nvm-4dc469c977d9
@@ -28,7 +28,7 @@ For some reason it seems that the brew installer doesn’t put anything into .zs
 Quit the Terminal and restart
 
 
-# Lesson 48 : Creating a Nav Bar
+## Lesson 48 : Creating a Nav Bar
 ng g -h - get help from the ng generate command
 
 He likes to create components in the client/src/app folder.
