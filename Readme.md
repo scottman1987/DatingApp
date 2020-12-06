@@ -66,6 +66,16 @@ https://github.com/TryCatchLearn/DatingApp
 * Setup Logging information
   * appsettings.Development.json
 
+```json
+"Logging": {
+   "LogLevel": {
+     "Default": "Information",
+     "Microsoft": "Information",
+     "Microsoft.Hosting.Lifetime": "Information"
+   }
+ }
+ ```
+
 
 ## Lesson 48 : Creating a Nav Bar
 ng g -h - get help from the ng generate command
