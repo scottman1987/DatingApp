@@ -235,7 +235,9 @@ He likes to create components in the `client/src/app` folder.
 * Copy a whole line down: Shift + Option + down arrow key
 
 
+## Lesson 49: Introduction to Angular Template Forms
 
-
-
+* imported FormsModule into app.module.ts
+* Worked on the form in nav.component (ts and html) to support ngSubmit functionality
+and made the form into an angular form.
 

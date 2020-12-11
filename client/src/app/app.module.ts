@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
+import { FormsModule } from '@angular/forms';
 
 // need to add a module into the AppModule (this class)
 // in order to allow for http requests
@@ -33,6 +34,7 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     
     BrowserAnimationsModule,
+    FormsModule
     
   ],
   providers: [],

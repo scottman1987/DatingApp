@@ -12,9 +12,36 @@
                 <a class="nav-link" href="#">Messages</a>
             </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Username">
-            <input class="form-control mr-sm-2" type="password" placeholder="Password">
+         <!-- the #loginForm below makes this an angular form -->
+         <!-- the (ngSubmit) calls our nav.component.ts login method upon submit I think 
+              It is important that there is a type="submit" button in the form below.
+              This means that when that button is clicked, the (ngSubmit) method is invoked
+            -->
+        <form
+              #loginForm="ngForm" 
+              (ngSubmit)="login()"
+              autocomplete="off"
+              class="form-inline mt-2 mt-md-0">
+              <!-- name = "username" helps map the input to the model member of this component -->
+              <!-- a-ngModel snippet used to insert the [(ngModel)]="model.username" below -->
+              <!-- [(ngModel)] sometimes referred to as a "banana in a box"-->
+              <!-- this is part of two-way binding -->
+              <!-- [] means receiving something from our component -->
+              <!-- () means communicating the other direction -->
+              <!-- [()] covers both directions -->
+              <!-- e.g. (ngSubmit) is going back upwards I think -->
+            <input
+              name="username" 
+              [(ngModel)]="model.username"
+              class="form-control mr-sm-2" 
+              type="text" 
+              placeholder="Username">
+            <input 
+              name="password"
+              [(ngModel)]="model.password"
+              class="form-control mr-sm-2" 
+              type="password" 
+              placeholder="Password">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
         </form>
     </div>
