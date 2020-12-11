@@ -75,6 +75,134 @@ https://github.com/TryCatchLearn/DatingApp
    }
  }
  ```
+```
+“Microsoft”: “Information”
+Will start seeing more information at the terminal:
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET https://localhost:5001/weatherforecast  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.WeatherForecastController.Get (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[API.WeatherForecast] Get() on controller API.Controllers.WeatherForecastController (API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'API.WeatherForecast[]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action API.Controllers.WeatherForecastController.Get (API) in 140.7034ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.WeatherForecastController.Get (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished in 542.0269ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET https://localhost:5001/weatherforecast  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'API.Controllers.WeatherForecastController.Get (API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[API.WeatherForecast] Get() on controller API.Controllers.WeatherForecastController (API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'API.WeatherForecast[]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action API.Controllers.WeatherForecastController.Get (API) in 4.034ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'API.Controllers.WeatherForecastController.Get (API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished in 6.1338ms 200 application/json; charset=utf-8
+```
+
+* Where dotnet run looks when it gets evoked:
+  * launchSettings.json, “API” block
+  * “launchBrowser” can be set to false
+  * This is also where “Development” running mode is set
+* `dotnet watch run` will install a file watcher that will respond to changes in files during development, and will keep you from having to keep rerunning the app as changes are made.
+
+## Lesson 9
+An example Entity class to contain basic user information
+
+```csharp
+namespace API.Entities
+{
+   public class AppUser
+   {
+       // EF note: Use Id for the PK, don't name it differently
+       public int Id { get; set; }
+ 
+       // EF note: Use this as written, with case!
+       public string UserName { get; set; }
+   }
+}
+```
+
+## Lesson 10 (no notes)
+
+## Lesson 11
+* New Extension: Nuget Gallery Manager by pclio
+* Shift + Command + P - to run nuget gallery
+* Install Microsoft.EntityFrameworkCore.Sqlite. Make sure the version of EF exactly matches the version of .NET Core the app is build with
+## Lesson 12
+* Command + . (dot) can be used to apply a fix suggestion
+* The light bulb can also be used
+* If quick fixes are not being shown, it is probably a configuration problem.
+* The quick fix suggestions appear to be coming from the OmniSharp extension
+
+```csharp
+using API.Entities;
+using Microsoft.EntityFrameworkCore;
+ 
+namespace API.Data
+{
+ 
+   // Use Command + . on the DataContext to get a
+   // list of actions that can be done - this is how I created
+   // the constructor.
+   //
+   // There was some sort of [NullParameter] attribute
+   // that appeared before DbContextOptions that Neil
+   // removed without comment. Not sure why, but I do
+   // know that the file wasn't going to build without
+   // some other namespace being added. :)
+   public class DataContext : DbContext
+   {
+       public DataContext(DbContextOptions options) : base(options)
+       {
+       }
+ 
+       public DbSet<AppUser> Users { get; set; }
+   }
+}
+```
+
+* Command + P to go to file - type Startup to go to Startup.cs file
+  * This can help navigate around the files as long as you know the names of what you’re looking for :) 
+
+```csharp
+  public void ConfigureServices(IServiceCollection services)
+       {
+           // lesson 12
+           services.AddDbContext<DataContext>(options =>
+           {
+               options.UseSqlite("connection string");
+           });
+```
+
+## Lesson 13
+Add connection string information to appsettings.Development.json
+Doesn’t matter, as SQLite connection strings don’t have usernames or passwords
+SQLite is not a production level db anyway, just good for development purposes, so it’s fine for the settings to be in the json file
+{
+ "ConnectionStrings" : {
+   "DefaultConnection": "Data source=datingapp.db"
+ },
+
+Doesn’t like MS way of injection in Startup.cs
+Configuration for VS Code:
+Command + , (comma) to get into settings
+Type private, look for private member prefix
+Find the setting, and make sure there is an _ in the settings
+Type prefixed this, look for Whether or not a ctor assignment should be prefixed with this
+Uncheck the setting
+
+Test out the operation:
+
+
 
 
 ## Lesson 48 : Creating a Nav Bar
