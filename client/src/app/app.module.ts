@@ -37,6 +37,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule
     
   ],
+
+  // this is the providers array referred to in the comment in 
+  // account.service.ts
   providers: [],
   bootstrap: [AppComponent]
 })

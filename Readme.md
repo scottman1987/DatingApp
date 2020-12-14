@@ -241,3 +241,11 @@ He likes to create components in the `client/src/app` folder.
 * Worked on the form in nav.component (ts and html) to support ngSubmit functionality
 and made the form into an angular form.
 
+## Lesson 50: Angular Services
+
+* creates a _services inside ./client/app folder
+  * underscore makes the folder pop to the top of the folders listed underneath the app folder. All services will go into this folder.
+  * using the terminal, cd into ./client/src/app/_services
+  * then issue the command: ```ng g s account```
+    * Basically, this is ng generate service called "account"
+    * within our new _services folder, we should now see a new file, account.service.ts
