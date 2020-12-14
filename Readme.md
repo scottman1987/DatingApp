@@ -249,3 +249,8 @@ and made the form into an angular form.
   * then issue the command: ```ng g s account```
     * Basically, this is ng generate service called "account"
     * within our new _services folder, we should now see a new file, account.service.ts
+
+## Lesson 51: Injecting Services Into Components
+* All changes in nav.component.ts
+  * Injected AccountService into the component, and then make the login call through the service.
+
