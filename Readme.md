@@ -254,3 +254,9 @@ and made the form into an angular form.
 * All changes in nav.component.ts
   * Injected AccountService into the component, and then make the login call through the service.
 
+## Lesson 52: Using Conditionals to Show and Remove Content
+* Using the *ngIf structural directive makes it possible to add and remove content from the DOM
+* Brief comparison to [hidden], which will merely hide the content. The choice is made for *ngIf because once logged in, we don't need the login form any more.
+* Uses a simplified loggedIn switch, which will be improved later.
+* Adds a dropdown menu, but isn't really used in this lesson.
+* Adds a temporary (additional) Logout link, needed since we're midstream development stage.
