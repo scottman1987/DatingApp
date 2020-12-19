@@ -260,3 +260,16 @@ and made the form into an angular form.
 * Uses a simplified loggedIn switch, which will be improved later.
 * Adds a dropdown menu, but isn't really used in this lesson.
 * Adds a temporary (additional) Logout link, needed since we're midstream development stage.
+
+## Lesson 53: Using the Angular Bootstrap Components - Dropdown
+* To search for ngx bootstrap components that work with bootstrap safely in an Angular application, search the web for ```ngx bootstrap```. Most likely you'll find https://valor-software.com.
+* In the case of this lesson, we're focusing on dropdowns, so we select the ```Dropdowns``` item on the nav.  
+  * A number of alternate ways of using this component are explained. We're using the basic approach for this lesson.
+* If you want to know what CSS class to affect for a specific element, right click on the element in the browser, and select ```Inspect Element```. The DOM explorer should open, and the row will be highlighted. 
+  * In the case of our dropdown elements, we find dropdown-toggle and dropdown-item.
+* To make the cursor pointer show up over menu button and item elements:
+  * In nav.component.css: 
+  ```css
+.dropdown-item, .dropdown-toggle {
+  cursor: pointer;
+}

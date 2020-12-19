@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // need to add a module into the AppModule (this class)
 // in order to allow for http requests
@@ -34,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot()
+  
     
   ],
 
