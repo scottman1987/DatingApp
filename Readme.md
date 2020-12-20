@@ -273,3 +273,29 @@ and made the form into an angular form.
 .dropdown-item, .dropdown-toggle {
   cursor: pointer;
 }
+
+## Lesson 54: Observables
+* Promise
+  * Provides a single future value
+  * Not lazy
+  * Can not cancel
+* Observable
+  * Emits multiple values over time
+  * Lazy
+  * Able to cancel
+  * Can use with map, filter, reduce, and other operators
+
+* Getting data from an Observable
+  * you have to .subscribe(), or nothing will come back
+  * you can also hook into the error returned
+  * and you can react to the response when it is completed.
+
+* .toPromise()
+  * it is also possible to convert an observable to a promise 
+    * ```this.http.get('api/users').toPromise()```
+  * We won't be using this approach in the class - the other method is better.
+
+* The async pipe!
+  * ```<li *ngFor='let member of service.getMembers() | async'>{{member.userName}}</li>```
+  * Automatically subscribes / unsubscribed from the Observable
+  
