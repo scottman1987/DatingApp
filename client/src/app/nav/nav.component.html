@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">Dating App</a>
-        <ul class="navbar-nav mr-auto" *ngIf="loggedIn" >
+        <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async" >
             <li class="nav-item">
                 <a class="nav-link" href="#">Matches</a>
             </li>
@@ -11,12 +11,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Messages</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="logout()" href="#">Logout</a>
-          </li>
       </ul>
 
-        <div class="dropdown" *ngIf="loggedIn" dropdown>
+        <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
           <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
           <div class="dropdown-menu mt-2" *dropdownMenu>
             <a class="dropdown-item">Edit Profile</a>
@@ -31,7 +28,7 @@
               This means that when that button is clicked, the (ngSubmit) method is invoked
             -->
         <form
-            *ngIf="!loggedIn"
+            *ngIf="(accountService.currentUser$ | async) === null"
               #loginForm="ngForm" 
               (ngSubmit)="login()"
               autocomplete="off"
