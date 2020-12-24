@@ -298,4 +298,16 @@ and made the form into an angular form.
 * The async pipe!
   * ```<li *ngFor='let member of service.getMembers() | async'>{{member.userName}}</li>```
   * Automatically subscribes / unsubscribed from the Observable
-  
+
+## Lesson 55: Persisting the login
+* I don't fully understand this!
+* going to watch it again I think, and diagram the parts.
+* The account service
+  * The account service now persists the user login and removes the login in the logout() function
+  * It uses something called a ReplaySubject, which "replays" a sequence. It is a form of an Observable.
+  * The technique is to set up the ReplaySubject with 1 item, since all we need is the most recent login information.
+* The app component
+  * The app component now gets the current user from the browser's localStorage.
+  * getUsers() remains, as it appears that this is what kicks off the whole communcation with the server (?)
+    * The .subscribe() method here was mentioned as the kickoff point (?)
+    

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +27,7 @@ implements OnInit
 
   // 1. we add the constructor with injectable parameter
   // (dependency injection of an HttpClient)
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private accountService: AccountService) {}
 
   // 4. This is the automatically added method from
   // step 3
@@ -34,6 +36,15 @@ implements OnInit
   
   ngOnInit(){
     this.getUsers();
+    this.setCurrentUser();
+  }
+
+  setCurrentUser() {
+    // get the currently set user from the local storage
+    const user: User = JSON.parse(localStorage.getItem('user'));
+
+    // communicate it to the account service.
+    this.accountService.setCurrentUser(user);
   }
 
   getUsers() {
