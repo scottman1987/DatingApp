@@ -311,3 +311,9 @@ and made the form into an angular form.
   * getUsers() remains, as it appears that this is what kicks off the whole communcation with the server (?)
     * The .subscribe() method here was mentioned as the kickoff point (?)
     
+## Lesson 57: Adding a home page
+*  cd to app directory
+* app % ng g c home (ng generate component called home in the app directory)
+* did work to put together a basic home page
+* Has a Register button that will invoke a login form (next lesson)
+* Logic for switching in place
