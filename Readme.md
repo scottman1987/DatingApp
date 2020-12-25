@@ -317,3 +317,9 @@ and made the form into an angular form.
 * did work to put together a basic home page
 * Has a Register button that will invoke a login form (next lesson)
 * Logic for switching in place
+
+## Lesson 58: Adding a Register form
+* cd to app directory
+* app % ng g c register (ng generate component called register in the app directory)
+* basic set up of new form only, no communication with API
+
