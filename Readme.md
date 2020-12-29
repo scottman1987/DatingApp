@@ -323,3 +323,27 @@ and made the form into an angular form.
 * app % ng g c register (ng generate component called register in the app directory)
 * basic set up of new form only, no communication with API
 
+## Lesson 59: Parent to child communication
+* app component is parent to home component; home component is parent to register component
+  * (app->home->register)
+* As part of the setup for this lesson, we add a few more users
+  * You have to do this via an API call. We used our Postman collection to do it.
+    * {{url}}/api/account/register
+    * I added ```scott2``` and ```scott3```, with pwd: ```password```
+* Use the square brackets to pass from parent to child. ```[ ]```
+  * These get used in the .html file.
+  * e.g. 
+  ```html
+    <app-register [usersFromHomeComponent]="users"></app-register>
+  ```
+* Then, in the child html, we can use those users thus:
+  * ```html
+      <div class="form-group">
+       <label>Who is your favorite user?</label>
+       <select class="form-control">
+           <option *ngFor="let user of usersFromHomeComponent" [value]="user.userName">
+               {{user.userName}}
+           </option>
+       </select>
+    </div>
+  ```

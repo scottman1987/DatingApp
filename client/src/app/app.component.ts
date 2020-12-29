@@ -27,7 +27,7 @@ implements OnInit
 
   // 1. we add the constructor with injectable parameter
   // (dependency injection of an HttpClient)
-  constructor(private http: HttpClient, private accountService: AccountService) {}
+  constructor(private accountService: AccountService) {}
 
   // 4. This is the automatically added method from
   // step 3
@@ -35,7 +35,6 @@ implements OnInit
   // remove the : void
   
   ngOnInit(){
-    this.getUsers();
     this.setCurrentUser();
   }
 
@@ -45,14 +44,5 @@ implements OnInit
 
     // communicate it to the account service.
     this.accountService.setCurrentUser(user);
-  }
-
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe(response => {
-      this.users = response;
-    }, error => {
-      console.log(error);
-    })
-    
   }
 }
