@@ -11,7 +11,9 @@
     <div *ngIf="registerMode" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
-                <app-register [usersFromHomeComponent]="users"></app-register>
+                <!-- []=parent to child, ()=child to parent -->
+                <!-- step 3: child to parent - setup () to handle child event -->
+                <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
             </div>
         </div>
     </div>

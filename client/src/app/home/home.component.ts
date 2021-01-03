@@ -8,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
-  users: any;
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUsers();
   }
 
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users')
-      .subscribe(users => this.users = users);
+  // step 4: child to parent communication
+  // this is the function that will catch the child's event
+  // (value)
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 }
