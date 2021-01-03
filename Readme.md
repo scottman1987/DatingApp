@@ -347,3 +347,21 @@ and made the form into an angular form.
        </select>
     </div>
   ```
+
+  ## Lesson 60 & 61: child to parent communication, and Hooking up the register method to the service
+  * () is used in html for child to parent communication.
+  * @Output parameter needs to be defined in the child component. It is an EventEmitter(), from angular core
+  ```javascript
+  @Output() cancelRegister = new EventEmitter(); 
+  ```
+  * In the child component, we need to emit an event. In this case we send the value false
+  ```javascript
+    this.cancelRegister.emit(false);
+  ```
+  * In the parent html, we need to hook up the child event to a parent method, and pass through the value (as $event in this example)
+  ```html
+       <app-register (cancelRegister)="cancelRegisterMode($event)" ></app-register>
+  ```
+  * In the parent .ts file, we need to code the handler to get called with the event value
+  ```javascript
+  ```
