@@ -87,6 +87,9 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // map to Index() method of FallbackController for any unknown
+                // routes. This helps us to point non-API calls to our Angular client app
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
