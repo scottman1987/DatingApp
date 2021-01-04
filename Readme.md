@@ -365,3 +365,43 @@ and made the form into an angular form.
   * In the parent .ts file, we need to code the handler to get called with the event value
   ```javascript
   ```
+
+
+
+  Lesson 249: Preparing the angular app and serving this from the api server
+  * Scan the angular app for any direct references to localhost. Change these to ```environment.apiUrl```
+  * go into angular.json and configure the build output (specifically the "outputPath" parameter)
+    * Note that this will actually build 'into' the directory structure of the web api application!
+    * The static files of the angular application will be deployed simply as part of the API.
+    * 
+```json
+
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "client": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "../API/wwwroot",
+```
+  * Add the following lines to Startup.cs
+  ```csharp
+    // things like index.html, which we'll need to serve the angular application
+    app.UseDefaultFiles();
+    // static files
+    app.UseStaticFiles();
+  ```
+  * Once you get this right, you can go to https://localhost:5001 and the angular app will show up, served by the API application.
+  * I tried my hand at adding a variable to the environment.ts file for the apiUrl. I have no idea if I did this correctly, but it does appear to be working in code.
+    * In addition, I referenced this in the one place where I found a static string in the angular app with 'localhost' in it.
+
+    

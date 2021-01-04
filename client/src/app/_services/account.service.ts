@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
 // @Injectible means that this service can be injected into other 
@@ -16,7 +17,7 @@ import { User } from '../_models/user';
 
 // An Angular service is a Singleton
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl; // 'https://localhost:5001/api/';
   // set aside 1 item of data, as we only need the currently
   // logged in user, or empty, for no login.
   private currentUserSource = new ReplaySubject<User>(1);

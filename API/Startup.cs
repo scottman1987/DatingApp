@@ -76,6 +76,14 @@ namespace API
             app.UseAuthentication();
             app.UseAuthorization();
 
+// Lesson 249: { 
+            // things like index.html, which we'll need to serve the angular
+            // application
+            app.UseDefaultFiles();
+            // static files
+            app.UseStaticFiles();
+// } 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
